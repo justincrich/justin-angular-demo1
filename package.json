@@ -1,0 +1,25 @@
+{
+  "name": "techdegree-angular-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js localhost 5000",
+    "db": "node ./src/api/data/seed.js"
+  },
+  "author": "Treehouse Island, Inc.",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "nodemon": "^1.9.1"
+  }
+}

@@ -1,0 +1,47 @@
+
+<div ng-controller="RecipesController">
+  <div class="grid-100 row controls">
+    <div class="grid-30">
+      <!-- Calls method selectByCategory when category selected -->
+      <select  ng-model="categorySelect" ng-change="selectByCategory(categorySelect)">
+        <option value="all" >All Categories</option>
+        <option ng-repeat="category in categories" value="{{category.name}}">{{category.name}}</option>
+      </select>
+    </div>
+    <div class="grid-70">
+      <div class="flush-right">
+        <a href="/#!/add"><button>+ Add Recipe</button></a>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="grid-100 row" ng-show="recipes.length==0">
+    <div class="grid-70">
+      <p>No recipes found!</p>
+    </div>
+  </div>
+  <div ng-show="recipes.length>0">
+    <div id="{{recipe._id}}" class="rListItem grid-100 row addHover" ng-repeat="recipe in recipes">
+      <a href="/#!/edit/{{recipe._id}}">
+        <div class="grid-70">
+          <p>
+            {{recipe.name}} - ({{recipe.category}})
+          </p>
+        </div>
+      </a>
+      <div class="hoverBlock">
+        <div class="grid-30">
+          <div class="flush-right">
+            <p>
+              <a href="/#!/edit/{{recipe._id}}"> <img src="images/edit.svg" height="12px"> Edit </a>
+              <!-- TODO Add a directive to this anchor element so that you can
+                delete the recipe when the user clicks on the 'Delete' link. -->
+              <a class="no-action-link" ng-click="deleteSingleRecipe(recipe._id,$index)"> <img src="images/delete.svg" height="12px"> Delete </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
